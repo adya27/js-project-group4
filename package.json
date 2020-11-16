@@ -1,0 +1,31 @@
+{
+  "name": "js-project-group4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "predeploy": "npm run build -- --public-url /js-project-group4/",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adya27/js-project-group4.git"
+  },
+  "keywords": [],
+  "author": "ANDREW <mdipk4@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adya27/js-project-group4/issues"
+  },
+  "homepage": "https://adya27.github.io/js-project-group4",
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.6.0",
+    "sass": "^1.29.0"
+  }
+}
