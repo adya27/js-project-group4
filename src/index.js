@@ -1,4 +1,4 @@
-import hellotmp from './templates/main';
+import './sass/main.scss';
 
-const body = document.querySelector('body');
-body.innerHTML = hellotmp();
+import './javascripts/fetch';
+import './javascripts/givesGenresNames';
