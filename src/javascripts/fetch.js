@@ -11,19 +11,19 @@ const fetchIt = URL => {
 const makesTrendingMkp = () => {
   const URLTrending = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`; //constant
 
-  fetchIt(URLTrending).then(src => movieCardMkp(src.results)); //сделать хендлбар функцию movieCardMkp для одной карточки
+  fetchIt(URLTrending).then(src => movieCardMkp(src.results)); //сделать хендлбар функцию movieCardMkp для одной карточки и заимпортировать
 };
 
 const makesSearchMkp = (query, page) => {
   const URLSearch = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}&include_adult=false`;
 
-  fetchIt(URLSearch).then(src => movieCardMkp(src.results)); //сделать хендлбар функцию movieCardMkp для одной карточки
+  fetchIt(URLSearch).then(src => movieCardMkp(src.results)); //сделать хендлбар функцию movieCardMkp для одной карточки и заимпортировать
 };
 
 const makesModalMkp = movieId => {
   const URLMovie = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
 
-  fetchIt(URLSearch).then(src => movieModalCardMkp(src.results)); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ
+  fetchIt(URLSearch).then(src => movieModalCardMkp(src.results)); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ и заимпортировать
 };
 
 // fetchTrending(URLTrending);
