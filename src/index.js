@@ -1,4 +1,4 @@
-import hellotmp from './templates/main';
+// import hellotmp from './templates/main';
 
-const body = document.querySelector('body');
-body.innerHTML = hellotmp();
+// const body = document.querySelector('body');
+// body.innerHTML = hellotmp();
