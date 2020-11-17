@@ -1,0 +1,134 @@
+// Хедер для кнопки "HOME"
+
+.header-image {
+  width: 100%;
+  background-color: $headerBackgroundColor;
+  background-image: linear-gradient(
+      to right,
+      $headerBackgroundColor,
+      $headerBackgroundColor
+    ),
+    url(../images/bg-image-home-mobile-1x.jpg);
+  background-size: cover;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/bg-image-home-mobile-2x.jpg);
+  }
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/bg-image-home-mobile-3x.jpg);
+  }
+
+  @media screen and(min-width:$tablet) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/bg-image-home-tablet-1x.jpg);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/bg-image-home-tablet-2x.jpg);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/bg-image-home-tablet-3x.jpg);
+    }
+  }
+
+  @media screen and(min-width:$desctop) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/bg-image-home-desctop-1x.jpg);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/bg-image-home-desctop-2x.jpg);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/bg-image-home-desctop-3x.jpg);
+    }
+  }
+}
+
+.header-page {
+  @media screen and (min-width: $tablet) {
+    text-align: center;
+  }
+}
+
+.header-search {
+  @include flex(flex-start, center);
+  padding: 0px 0px 4px;
+  @include size(auto, 20px);
+  border-bottom: 0.5px solid $primaryTextColor;
+  @media screen and (min-width: $tablet) {
+    @include size(336px, 20px);
+    margin: auto;
+  }
+}
+
+.header-search-input {
+  flex-grow: 1;
+  @include button(1px);
+  @include text($primaryTextColor, 14px, 400, 16px);
+  &::placeholder {
+    @include text($primaryTextColor, 14px, 400, 16px);
+  }
+}
+
+.header-submit-input {
+  @include button(0px);
+  @include size(12px, 12px);
+  background-image: url(../images/search.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.header-error-text {
+  margin: 22px 0px 0px;
+  @include text($textErrorColor, 14px, 400, 16px);
+  &.hidden {
+    display: none;
+  }
+}
