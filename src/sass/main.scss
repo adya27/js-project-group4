@@ -1,2 +1,7 @@
+@import './utils/_mixins.scss';
+@import './utils/_variables.scss';
+
 @import './_list_films_markup.scss';
-@import "./components/_page_modal.scss";
+@import './components/_page_modal.scss';
+@import './components/_header-common.scss';
+@import './components/_header-home.scss';
