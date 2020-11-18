@@ -27,3 +27,5 @@ const makesModalMkp = movieId => {
 };
 
 // fetchTrending(URLTrending);
+
+export { apiKey };
