@@ -6,7 +6,7 @@
   margin-bottom: 60px;
   width: 374px;
 }
-a {
+a.page {
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -29,7 +29,7 @@ a {
   background: #ff6b01;
   color: white;
 }
-.current-page:hover {
+.page:hover {
   background: #ff6b01;
   color: white;
 }
@@ -37,11 +37,3 @@ a {
 .arrow-class {
   background: #f7f7f7;
 }
-
-
-/* .arrow-bckg {
-  display: flex;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-} */
