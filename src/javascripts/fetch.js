@@ -5,10 +5,6 @@ let query = `js`; // takes from form
 let page = 1; // pagination while search movie
 let movieId = 701189; // data-attribute of the backdrop img
 
-const refs = {
-    modal: document.querySelector('.modal-conteiner'),
-}
-
 const modalOverley = document.querySelector('.lightbox__overlay');
 
 const fetchIt = URL => {
@@ -26,9 +22,7 @@ const makesModalMkp = movieId => {
 
   fetchIt(URLMovie).then(src => {
     modalOverley.insertAdjacentHTML('beforeend', modalTpl(src));
-  }); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ и заимпортировать
+  });
 };
 
 export { fetchIt, apiKey, makesModalMkp };
-
-// .then(() => { refs.modal.classList.remove('visually-hidden'); }
