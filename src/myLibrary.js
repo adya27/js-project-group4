@@ -1,4 +1,4 @@
-import './sass/main.scss';
+import './sass/myLibrary.scss';
 
 import './javascripts/fetch';
 import './javascripts/givesGenresNames';
