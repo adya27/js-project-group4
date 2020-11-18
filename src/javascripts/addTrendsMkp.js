@@ -17,3 +17,5 @@ const makesTrendingMkp = () => {
 };
 
 makesTrendingMkp();
+
+export { makesTrendingMkp };
