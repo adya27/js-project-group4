@@ -39,6 +39,7 @@ $desktop: 1024px;
 
 .photo-card {
   margin: 15px;
+  cursor: pointer;
 
   @media screen and (max-width: 767px) {
     // width: calc(100% - 15px);
