@@ -18,4 +18,3 @@ function searchForm(e) {
 function renderMarkup(movies) {
    refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(movies))
 }
-    
