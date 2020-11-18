@@ -9,7 +9,7 @@ const refs = {
     modal: document.querySelector('.modal-conteiner'),
 }
 
-const galleryList = document.querySelector('.js-gallery');
+const modalOverley = document.querySelector('.lightbox__overlay');
 
 const fetchIt = URL => {
   return fetch(URL).then(res => res.json());
@@ -25,7 +25,7 @@ const makesModalMkp = movieId => {
   const URLMovie = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
 
   fetchIt(URLMovie).then(src => {
-    galleryList.insertAdjacentHTML('beforeend', modalTpl(src));
+    modalOverley.insertAdjacentHTML('beforeend', modalTpl(src));
   }); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ и заимпортировать
 };
 
