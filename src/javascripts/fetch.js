@@ -1,7 +1,15 @@
+import modalTpl from '../templates/modal.hbs';
+
 const apiKey = `00247c3a79a23ea8d225678fa2dae566`;
 let query = `js`; // takes from form
 let page = 1; // pagination while search movie
 let movieId = 701189; // data-attribute of the backdrop img
+
+const refs = {
+    modal: document.querySelector('.modal-conteiner'),
+}
+
+const galleryList = document.querySelector('.js-gallery');
 
 const fetchIt = URL => {
   return fetch(URL).then(res => res.json());
@@ -16,7 +24,11 @@ const makesSearchMkp = (query, page) => {
 const makesModalMkp = movieId => {
   const URLMovie = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
 
-  fetchIt(URLSearch).then(src => movieModalCardMkp(src.results)); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ и заимпортировать
+  fetchIt(URLMovie).then(src => {
+    galleryList.insertAdjacentHTML('beforeend', modalTpl(src));
+  }); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ и заимпортировать
 };
 
-export { fetchIt, apiKey };
+export { fetchIt, apiKey, makesModalMkp };
+
+// .then(() => { refs.modal.classList.remove('visually-hidden'); }

@@ -1,5 +1,5 @@
 <div class="modal-conteiner">
-    <img class="image-modal" src="{{backdrop_path}}" alt="{{original_title}}" width="280" height="416">
+    <img class="image-modal" src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{original_title}}" width="280" height="416">
     <div>
         <h1 class="heder-images">{{title}}</h1>
         <table class="table-description">
@@ -19,7 +19,9 @@
             </tr>
             <tr class="tr-table">
                 <td class="title-table-row">Genre</td>
-                <td class="description-table-row">{{genres.name}}</td>
+                {{#each genres}}
+                <td class="description-table-row">{{name}}</td>
+                {{/each}}
             </tr>
         </table>
         <h2 class="about">About</h2>

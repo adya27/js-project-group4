@@ -1,6 +1,7 @@
 import movieCardMkp from '../templates/list_film.hbs';
 import { fetchIt, apiKey } from './fetch';
 import { givesGenresNames, givesGenresArr } from './givesGenresNames';
+import { onClickOpenModal } from './modal';
 import genres from './genres.js';
 
 const galleryList = document.querySelector('.js-gallery');
@@ -12,6 +13,7 @@ const makesTrendingMkp = () => {
     src.results.forEach(movie => {
       movie.genre = givesGenresArr(movie.genre_ids);
       galleryList.insertAdjacentHTML('beforeend', movieCardMkp(movie));
+      galleryList.addEventListener('click', onClickOpenModal)
     }),
   );
 };
