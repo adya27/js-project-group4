@@ -1,5 +1,6 @@
 import { ImageApiService } from './api-service';
 import markupCard from '../templates/list_films.hbs';
+import { makesTrendingMkp } from './addTrendsMkp';
 
 const refs = {
     searchForm: document.querySelector('.header-search'),
@@ -16,6 +17,10 @@ function searchForm(e) {
 }
 
 function renderMarkup(movies) {
-   refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(movies))
+    refs.imageGallery.innerHTML = '';
+    refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(movies))
+    if (imageApiService.searchQuery === '') {
+        makesTrendingMkp();
+    }
 }
     
