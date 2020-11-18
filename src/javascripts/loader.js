@@ -7,7 +7,6 @@ const promise = () => {
 };
 
 promise().then(() => {
-  const loader = document.querySelector('#loader');
-
-  loader.classList.add('hide-loader');
+  // const loader = document.querySelector('#loader');
+  // loader.classList.add('hide-loader');
 });
