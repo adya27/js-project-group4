@@ -4,14 +4,7 @@ let page = 1; // pagination while search movie
 let movieId = 701189; // data-attribute of the backdrop img
 
 const fetchIt = URL => {
-  fetch(URL).then(res => res.json());
-  // .then(src => console.log(src.results));
-};
-
-const makesTrendingMkp = () => {
-  const URLTrending = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`; //constant
-
-  fetchIt(URLTrending).then(src => movieCardMkp(src.results)); //сделать хендлбар функцию movieCardMkp для одной карточки и заимпортировать
+  return fetch(URL).then(res => res.json());
 };
 
 const makesSearchMkp = (query, page) => {
@@ -26,6 +19,4 @@ const makesModalMkp = movieId => {
   fetchIt(URLSearch).then(src => movieModalCardMkp(src.results)); //сделать хендлбар функцию movieModalCardMkp для МОДАЛКИ и заимпортировать
 };
 
-// fetchTrending(URLTrending);
-
-export { apiKey };
+export { fetchIt, apiKey };
