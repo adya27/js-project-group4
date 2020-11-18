@@ -1,0 +1,143 @@
+// Хедер для страницы "myLibrary"
+
+.header-image {
+  width: 100%;
+  background-color: $headerBackgroundColor;
+  background-image: linear-gradient(
+      to right,
+      $headerBackgroundColor,
+      $headerBackgroundColor
+    ),
+    url(../images/myLibrary/bg-image-myLibrary-mobile-1x.jpg);
+  background-size: cover;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/myLibrary/bg-image-myLibrary-mobile-2x.jpg);
+  }
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/myLibrary/bg-image-myLibrary-mobile-3x.jpg);
+  }
+
+  @media screen and(min-width:$tablet) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/myLibrary/bg-image-myLibrary-tablet-1x.jpg);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/myLibrary/bg-image-myLibrary-tablet-2x.jpg);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/myLibrary/bg-image-myLibrary-tablet-3x.jpg);
+    }
+  }
+
+  @media screen and(min-width:$desctop) {
+    background-image: linear-gradient(
+        to right,
+        $headerBackgroundColor,
+        $headerBackgroundColor
+      ),
+      url(../images/myLibrary/bg-image-myLibrary-desctop-1x.jpg);
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/myLibrary/bg-image-myLibrary-desctop-2x.jpg);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: linear-gradient(
+          to right,
+          $headerBackgroundColor,
+          $headerBackgroundColor
+        ),
+        url(../images/myLibrary/bg-image-myLibrary-desctop-3x.jpg);
+    }
+  }
+}
+
+.header-common {
+  @include flex(space-between, flex-end);
+  margin-bottom: 49px;
+
+  @media screen and (min-width: $tablet) {
+    @include flex(space-between, baseline);
+    @include size(auto, 35px);
+  }
+}
+
+.header-page {
+  @media screen and (min-width: $tablet) {
+    text-align: center;
+  }
+}
+
+.headerButtons {
+  @include flex(center, baseline);
+}
+
+.headerButtons .button {
+  @include size(130px, 44px);
+
+  @include text($primaryTextColor, 12px, 500, 16px);
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+
+  @media screen and (min-width: $tablet) {
+    @include size(136px, 44px);
+  }
+}
+
+.headerButtons .button-item:not(:last-child) {
+  margin-right: 20px;
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 15px;
+  }
+}
+
+// Стиль для выбраной кнопки
+
+.headerButtons .selected {
+  background: #ff6b01;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  border-radius: 5px;
+}
