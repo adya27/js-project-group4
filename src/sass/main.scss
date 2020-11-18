@@ -3,7 +3,11 @@
 
 @import './components/_list_films_markup.scss';
 @import './components/_page_modal.scss';
-// @import './components/pagination';
+
+@import './components/pagination';
+@import './components/footer.scss';
+
+
 @import './components/_header-common.scss';
 @import './components/_header-home.scss';
 
@@ -11,3 +15,4 @@
 @import './components/_list_films_markup.scss';
 @import './components/_page_modal.scss';
 // @import './components/pagination';
+
