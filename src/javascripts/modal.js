@@ -14,7 +14,7 @@ function onClickOpenModal(evt) {
     if (evt.target.nodeName !== 'IMG') {
         return;
     }
-    makesModalMkp(evt.target.dataset.image)
+    makesModalMkp(evt.target.dataset.id)
     window.addEventListener('keydown', onKeydownCloseModal);
     refs.modal.classList.add('is-open');
 }
