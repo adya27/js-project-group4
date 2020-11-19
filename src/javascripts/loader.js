@@ -1,12 +1,6 @@
-const promise = () => {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve();
-    }, 5000);
-  });
+const hideLoader = () => {
+  const loader = document.querySelector('#loader');
+  loader.classList.add('hide-loader');
 };
 
-promise().then(() => {
-  // const loader = document.querySelector('#loader');
-  // loader.classList.add('hide-loader');
-});
+export default hideLoader;
