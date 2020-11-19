@@ -14,19 +14,15 @@ const fetchIt = URL => {
 const makesSearchMkp = (query, page) => {
   const URLSearch = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}&include_adult=false`;
 
-  fetchIt(URLSearch).then(src => {
-    console.log(src);
-    movieCardMkp(src.results);
-  }); //сделать хендлбар функцию movieCardMkp для одной карточки и заимпортировать
+  fetchIt(URLSearch).then(src => movieCardMkp(src.results)); //сделать хендлбар функцию movieCardMkp для одной карточки и заимпортировать
 };
 
 const makesModalMkp = movieId => {
   const URLMovie = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
 
-  return fetchIt(URLMovie).then(src => {
-    // console.log(src);
-    modalOverley.innerHTML = modalTpl(src);
-  });
+  return fetchIt(URLMovie).then(
+    src => (modalOverley.innerHTML = modalTpl(src)),
+  );
 };
 
 export { fetchIt, apiKey, makesModalMkp };
