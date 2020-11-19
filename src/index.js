@@ -11,5 +11,7 @@ import './javascripts/search-movies-pagination';
 import './javascripts/api-service';
 
 import './javascripts/addTrendsMkp';
-import './javascripts/modal';
 
+import './javascripts/watched-library';
+import './javascripts/queue-library';
+import './javascripts/modal';
