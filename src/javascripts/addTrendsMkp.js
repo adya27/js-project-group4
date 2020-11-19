@@ -1,21 +1,26 @@
-import movieCardMkp from '../templates/list_film.hbs';
+import movieCardMkp from '../templates/list_films.hbs';
 import { fetchIt, apiKey } from './fetch';
 import { givesGenresNames, givesGenresArr } from './givesGenresNames';
-import { onClickOpenModal } from './modal';
 import genres from './genres.js';
+import getYearFromReleaseDate from './getYearFromReleaseDate';
 
 const galleryList = document.querySelector('.js-gallery');
 
 const makesTrendingMkp = () => {
-  const URLTrending = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`; //constant
+  const URLTrending = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`; //constant
 
-  fetchIt(URLTrending).then(src =>
-    src.results.forEach(movie => {
-      movie.genre = givesGenresArr(movie.genre_ids);
-      galleryList.insertAdjacentHTML('beforeend', movieCardMkp(movie));
-      galleryList.addEventListener('click', onClickOpenModal)
-    }),
-  );
+  fetchIt(URLTrending)
+    .then(({ results }) => results)
+    .then(results => {
+      results.forEach(movie => {
+        movie.genre = givesGenresArr(movie.genre_ids);
+        movie.year = getYearFromReleaseDate(movie.release_date);
+      });
+      return results;
+    })
+    .then(results => {
+      galleryList.insertAdjacentHTML('beforeend', movieCardMkp(results));
+    });
 };
 
 makesTrendingMkp();

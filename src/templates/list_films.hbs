@@ -1,10 +1,10 @@
 {{#each this}}
-<li class="photo-card">
-    <img src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{title}}" data-id="{{id}}" class="poster-film" />
+<li class="photo-card" data-id="{{id}}">
+    <img src="https://image.tmdb.org/t/p/w1280{{poster_path}}" height="400" />
 
     <div class="card-text">
-        <h3 class="title-card">{{title}}</h3>
-        <p class="desc-card">Action | {{release_date}}</p>
+        <h3 class="title-card">{{title}} {{original_name}}</h3>
+        <p class="desc-card">{{genre}} | {{year}} {{release_date}}</p>
     </div>
 </li>
 {{/each}}
