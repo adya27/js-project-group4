@@ -4,6 +4,7 @@ import { givesGenresNames, givesGenresArr } from './givesGenresNames';
 import genres from './genres.js';
 import getYearFromReleaseDate from './getYearFromReleaseDate';
 import { onClickOpenModal } from './modal';
+import makesStubForPicture from './makesStubForPicture';
 
 const galleryList = document.querySelector('.js-gallery');
 
@@ -16,6 +17,8 @@ const makesTrendingMkp = () => {
       results.forEach(movie => {
         movie.genre = givesGenresArr(movie.genre_ids);
         movie.year = getYearFromReleaseDate(movie.release_date);
+        movie.poster = makesStubForPicture(movie.poster_path);
+        // console.log(movie);
       });
       return results;
     })
