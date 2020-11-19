@@ -1,0 +1,34 @@
+<div class="modal-position">
+    <div class="modal-conteiner lightbox__content">
+        <img class="image-modal" src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{original_title}}" width="280"
+            height="416">
+        <div>
+            <h1 class="heder-images">{{title}}</h1>
+            <table class="table-description">
+                <tr class="tr-table">
+                    <td class="title-table-row">Vote / Votes</td>
+                    <td class="description-table-row flex-row"><span class="vote">{{vote_average}}</span> / <span
+                            class="votes">{{vote_count}}</span>
+                    </td>
+                </tr>
+                <tr class="tr-table">
+                    <td class="title-table-row">Popularity</td>
+                    <td class="description-table-row">{{popularity}}</td>
+                </tr>
+                <tr class="tr-table">
+                    <td class="title-table-row">Original Title</td>
+                    <td class="description-table-row tolowercase">{{original_title}}</td>
+                </tr>
+                <tr class="tr-table">
+                    <td class="title-table-row">Genre</td>
+                    {{#each genres}}
+                    <td class="description-table-row">{{name}}</td>
+                    {{/each}}
+                </tr>
+            </table>
+            <h2 class="about">About</h2>
+            <p class="text-about">{{overview}}</p>
+            <button class="button-watcyed" type="button">add to watched</button>
+            <button class="button-queue" type="button">add to queue</button>
+        </div>
+</div>

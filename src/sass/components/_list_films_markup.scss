@@ -39,6 +39,7 @@ $desktop: 1024px;
 
 .photo-card {
   margin: 15px;
+  cursor: pointer;
 
   @media screen and (max-width: 767px) {
     // width: calc(100% - 15px);
@@ -52,6 +53,10 @@ $desktop: 1024px;
   @media screen and (min-width: $desktop) {
     max-width: 274px;
   }
+}
+
+.poster-film {
+  height: 400px;
 }
 
 .card-text {
