@@ -15,7 +15,7 @@ function givesGenresArr(genreIds) {
   if (genresArr.length <= 2) {
     return genresArr.join(', ');
   } else {
-    return genresArr.slice(0, 2).join(', ');
+    return `${genresArr.slice(0, 2).join(', ')}, Other`;
   }
 }
 

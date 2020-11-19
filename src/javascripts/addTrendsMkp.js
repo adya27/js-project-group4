@@ -5,6 +5,7 @@ import genres from './genres.js';
 import getYearFromReleaseDate from './getYearFromReleaseDate';
 import { onClickOpenModal } from './modal';
 import makesStubForPicture from './makesStubForPicture';
+import hideLoader from './loader';
 
 const galleryList = document.querySelector('.js-gallery');
 
@@ -25,6 +26,9 @@ const makesTrendingMkp = () => {
     .then(results => {
       galleryList.insertAdjacentHTML('beforeend', movieCardMkp(results));
       galleryList.addEventListener('click', onClickOpenModal);
+    })
+    .then(() => {
+      hideLoader();
     });
 };
 
