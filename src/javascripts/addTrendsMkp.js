@@ -3,6 +3,7 @@ import { fetchIt, apiKey } from './fetch';
 import { givesGenresNames, givesGenresArr } from './givesGenresNames';
 import genres from './genres.js';
 import getYearFromReleaseDate from './getYearFromReleaseDate';
+import { onClickOpenModal } from './modal';
 
 const galleryList = document.querySelector('.js-gallery');
 
@@ -20,6 +21,7 @@ const makesTrendingMkp = () => {
     })
     .then(results => {
       galleryList.insertAdjacentHTML('beforeend', movieCardMkp(results));
+      galleryList.addEventListener('click', onClickOpenModal);
     });
 };
 
