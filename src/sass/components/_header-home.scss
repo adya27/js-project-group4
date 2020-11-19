@@ -125,10 +125,15 @@
   cursor: pointer;
 }
 
-.header-error-text {
+.header-notification {
   margin: 22px 0px 0px;
-  @include text($textErrorColor, 14px, 400, 16px);
-  &.hidden {
-    display: none;
+  display: none;
+  &.error {
+    display: block;
+    @include text($textErrorColor, 14px, 400, 16px);
+  }
+  &.success {
+    display: block;
+    @include text($textSuccessColor, 14px, 400, 16px);
   }
 }
