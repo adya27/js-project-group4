@@ -116,6 +116,12 @@
   }
 }
 
+.header-search-input:focus {
+  &::placeholder {
+    color: transparent;
+  }
+}
+
 .header-submit-input {
   @include button(0px);
   @include size(12px, 12px);
@@ -125,10 +131,15 @@
   cursor: pointer;
 }
 
-.header-error-text {
+.header-notification {
   margin: 22px 0px 0px;
-  @include text($textErrorColor, 14px, 400, 16px);
-  &.hidden {
-    display: none;
+  display: none;
+  &.error {
+    display: block;
+    @include text($textErrorColor, 14px, 400, 16px);
+  }
+  &.success {
+    display: block;
+    @include text($textSuccessColor, 14px, 400, 16px);
   }
 }
