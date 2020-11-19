@@ -116,6 +116,12 @@
   }
 }
 
+.header-search-input:focus {
+  &::placeholder {
+    color: transparent;
+  }
+}
+
 .header-submit-input {
   @include button(0px);
   @include size(12px, 12px);
