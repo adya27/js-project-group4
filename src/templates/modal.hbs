@@ -1,9 +1,9 @@
 <div class="modal-position">
     <div class="modal-conteiner lightbox__content">
-        <img class="image-modal" src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{original_title}}" width="280"
-            height="416">
+        <img class="image-modal" src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{original_title}}"
+            width="280" height="416">
         <div>
-            <h1 class="heder-images">{{title}}</h1>
+            <h1 class="heder-images" data-id='{{id}}'>{{title}}</h1>
             <table class="table-description">
                 <tr class="tr-table">
                     <td class="title-table-row">Vote / Votes</td>
@@ -22,8 +22,12 @@
                 <tr class="tr-table">
                     <td class="title-table-row">Genre</td>
                     {{#each genres}}
-                    <td class="description-table-row">{{name}}</td>
+                    <td class="description-table-row genre">{{name}}</td>
                     {{/each}}
+                </tr>
+                <tr class="tr-table year">
+                    <td class="title-table-row year">Original Title</td>
+                    <td class="description-table-row year value">{{release_date}}</td>
                 </tr>
             </table>
             <h2 class="about">About</h2>
@@ -31,4 +35,4 @@
             <button class="button-watcyed" type="button">add to watched</button>
             <button class="button-queue" type="button">add to queue</button>
         </div>
-</div>
+    </div>
