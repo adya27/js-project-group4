@@ -1,4 +1,5 @@
 import markupCard from '../templates/list_films_library.hbs';
+import { onClickOpenModal } from './modal';
 
 const refs = {
   headerBtns: document.querySelector('.headerButtons'),
@@ -11,6 +12,7 @@ const watchedMovies = JSON.parse(localStorage.getItem('Watched'));
 const queueMovies = JSON.parse(localStorage.getItem('Queue'));
 
 refs.headerBtns.addEventListener('click', onHeaderButtons);
+refs.imageGallery.addEventListener('click', onClickOpenModal);
 
 renderMovies(watchedMovies);
 refs.btnWatched.classList.add('selected');
