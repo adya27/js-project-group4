@@ -1,5 +1,13 @@
-{{#each this}}
+{{!-- Нужно раскомментировать для пагинации Юры --}}
+{{!-- {{#each this}}
 <li class="page">
     <button data-page="{{page}}" class="btn-page">{{page}}</button>
+</li>
+{{/each}} --}}
+
+{{!-- Нужно раскомментировать для пагинации Иры --}}
+{{#each this}}
+<li class="page" id={{this}}>
+    <button class="btn-page">{{this}}</button>
 </li>
 {{/each}}
