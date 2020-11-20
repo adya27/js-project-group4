@@ -30,7 +30,8 @@ function onClickCloseModal() {
     window.removeEventListener("keydown", onKeydownCloseModal);
   refs.modal.classList.remove('is-open');
   document.querySelector('.button-watcyed').removeEventListener('click', onButtonWatchedClick);
-  document.querySelector('.button-queue').removeEventListener('click', onButtonQueueClick);
+    document.querySelector('.button-queue').removeEventListener('click', onButtonQueueClick);
+    refs.overley.innerHTML = ' ';
 };
 
 function onClickOverlayCloseModal(evt) {
