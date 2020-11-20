@@ -1,4 +1,6 @@
 import { makesModalMkp } from './fetch';
+import onButtonWatchedClick from './watched-library'
+import onButtonQueueClick from './queue-library'
 
 const refs = {
     modal: document.querySelector('div.lightbox'),
@@ -14,14 +16,21 @@ function onClickOpenModal(evt) {
     if (evt.target.nodeName !== 'IMG') {
         return;
     }
-    makesModalMkp(evt.target.dataset.id)
+  makesModalMkp(evt.target.dataset.id).then(onModalMarkupLoaded);
     window.addEventListener('keydown', onKeydownCloseModal);
     refs.modal.classList.add('is-open');
 }
+function onModalMarkupLoaded() { 
+    document.querySelector('.button-watcyed').addEventListener('click', onButtonWatchedClick);
+    document.querySelector('.button-queue').addEventListener('click', onButtonQueueClick);
+}
+
 
 function onClickCloseModal() {
     window.removeEventListener("keydown", onKeydownCloseModal);
-    refs.modal.classList.remove('is-open');
+  refs.modal.classList.remove('is-open');
+  document.querySelector('.button-watcyed').removeEventListener('click', onButtonWatchedClick);
+  document.querySelector('.button-queue').removeEventListener('click', onButtonQueueClick);
 };
 
 function onClickOverlayCloseModal(evt) {
