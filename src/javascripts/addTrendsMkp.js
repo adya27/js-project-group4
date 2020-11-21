@@ -16,7 +16,7 @@ const makesTrendingMkp = (page = 1) => {
 
   // makes last btn
   fetchIt(URLTrending).then(res => {
-    console.log(res.total_pages);
+    // console.log(res.total_pages);
     refs.lastBtn.textContent = res.total_pages;
     refs.lastBtn.addEventListener('click', onClickLastBtn);
     function onClickLastBtn(e) {
