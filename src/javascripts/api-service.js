@@ -1,7 +1,6 @@
 import { apiKey } from './fetch.js';
-import { givesGenresNames, givesGenresArr } from './givesGenresNames';
+import { givesGenresArr } from './givesGenresNames';
 import getYearFromReleaseDate from './getYearFromReleaseDate';
-import genres from './genres.js';
 
 const PUBLIC_URL = 'https://api.themoviedb.org/3/search/movie';
 
@@ -38,9 +37,6 @@ class ImageApiService {
     }
     resetPage() {
         this.page = 1;
-    }
-    setGenre(array) {
-        this.genre = array;
     }
 }
 
