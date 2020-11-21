@@ -1,4 +1,5 @@
-{{#each this}}
+{{!-- Нужно раскомментировать для пагинации Юры --}}
+{{!-- {{#each this}}
 <li class="photo-card" data-id="{{id}}">
     <img class="js-image-src" src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{title}}" data-id="{{id}}"
         class="poster-film" />
@@ -6,6 +7,19 @@
     <div class="card-text">
         <h3 class="title-card">{{title}} {{original_name}}</h3>
         <p class="desc-card">{{genre}} | {{year}} {{release_date}}</p>
+    </div>
+</li>
+{{/each}} --}}
+
+{{!-- Нужно раскомментировать для пагинации Иры --}}
+{{#each this}}
+<li class="photo-card" data-id="{{id}}">
+    <img class="js-image-src" src="https://image.tmdb.org/t/p/w400{{poster_path}}" alt="{{title}}" data-id="{{id}}"
+        class="poster-film" />
+
+    <div class="card-text">
+        <h3 class="title-card">{{title}} {{original_name}}</h3>
+        <p class="desc-card">{{genre}} | {{year}} </p>
     </div>
 </li>
 {{/each}}

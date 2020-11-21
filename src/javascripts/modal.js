@@ -6,6 +6,7 @@ const refs = {
     modal: document.querySelector('div.lightbox'),
     overley: document.querySelector('div.lightbox__overlay'),
     closeModal: document.querySelector('.lightbox__button'),
+    body: document.querySelector('body'),
 }
 
 refs.overley.addEventListener('click', onClickOverlayCloseModal);
@@ -19,7 +20,7 @@ function onClickOpenModal(evt) {
   makesModalMkp(evt.target.dataset.id).then(onModalMarkupLoaded);
     window.addEventListener('keydown', onKeydownCloseModal);
     refs.modal.classList.add('is-open');
-    document.body.classList.add('modal-open');
+    refs.body.classList.add('modal-open')
 }
 function onModalMarkupLoaded() { 
     document.querySelector('.button-watcyed').addEventListener('click', onButtonWatchedClick);
@@ -30,9 +31,10 @@ function onModalMarkupLoaded() {
 function onClickCloseModal() {
     window.removeEventListener("keydown", onKeydownCloseModal);
     refs.modal.classList.remove('is-open');
-    document.body.classList.remove('modal-open');
+    refs.body.classList.remove('modal-open');
     document.querySelector('.button-watcyed').removeEventListener('click', onButtonWatchedClick);
     document.querySelector('.button-queue').removeEventListener('click', onButtonQueueClick);
+    refs.overley.innerHTML = ' ';
 };
 
 function onClickOverlayCloseModal(evt) {
