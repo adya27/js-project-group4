@@ -14,14 +14,14 @@ const galleryList = document.querySelector('.js-gallery');
 const makesTrendingMkp = (page = 1) => {
   const URLTrending = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`; //constant
 
-  // makes last btn
-  fetchIt(URLTrending).then(res => {
-    // console.log(res.total_pages);
-    refs.lastBtn.textContent = res.total_pages;
-  });
-
   fetchIt(URLTrending)
-    .then(({ results }) => results)
+    .then(res => {
+      refs.lastBtn.textContent = res.total_pages;
+      return res;
+    })
+    .then(({ results }) => {
+      return results;
+    })
     .then(results => {
       results.forEach(movie => {
         movie.genre = givesGenresArr(movie.genre_ids);

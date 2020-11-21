@@ -13,6 +13,7 @@ refs.fifthBtn.addEventListener('click', onClickFifthBtn);
 refs.sixthBtn.addEventListener('click', onClickSixthBtn);
 refs.seventhBtn.addEventListener('click', onClickSeventhBtn);
 refs.eighthBtn.addEventListener('click', onClickEighthBtn);
+refs.lastBtn.addEventListener('click', onClickLastBtn);
 
 function scrollMovies() {
   window.scrollTo({
@@ -23,13 +24,47 @@ function scrollMovies() {
 
 function onClickNextBtn(e) {
   e.preventDefault();
-  page = Number(page) + 1;
+  //   page = Number(page) + 1;
   console.log(page);
-  makesTrendingMkp(page);
+  //   makesTrendingMkp(page);
   //   scrollMovies();
+  refs.previousActiveBtn.classList.remove('current-page');
+
+  switch (refs.previousActiveBtn) {
+    case refs.firstBtn:
+      onClickSecondBtn();
+      break;
+
+    case refs.secondBtn:
+      onClickThirdBtn();
+      break;
+
+    case refs.thirdBtn:
+      onClickFourthBtn();
+      break;
+
+    case refs.fourthBtn:
+      onClickFifthBtn();
+      break;
+
+    case refs.fifthBtn:
+      onClickSixthBtn();
+      break;
+
+    case refs.sixthBtn:
+      onClickSeventhBtn();
+      break;
+
+    case refs.seventhBtn:
+      onClickEighthBtn();
+      break;
+
+    case refs.eighthBtn:
+      onClickLastBtn();
+      break;
+  }
 }
 
-refs.lastBtn.addEventListener('click', onClickLastBtn);
 function onClickLastBtn(e) {
   e.preventDefault();
   if (refs.previousActiveBtn !== '') {
@@ -54,8 +89,44 @@ function onClickPreviousBtn(e) {
     page = Number(page) - 1;
   }
   console.log(page);
-  makesTrendingMkp(page);
+  //   makesTrendingMkp(page);
   //   scrollMovies();
+
+  refs.previousActiveBtn.classList.remove('current-page');
+
+  switch (refs.previousActiveBtn) {
+    case refs.firstBtn:
+      break;
+
+    case refs.secondBtn:
+      onClickFirstBtn();
+
+      break;
+
+    case refs.thirdBtn:
+      onClickSecondBtn();
+      break;
+
+    case refs.fourthBtn:
+      onClickThirdBtn();
+      break;
+
+    case refs.fifthBtn:
+      onClickFourthBtn();
+      break;
+
+    case refs.sixthBtn:
+      onClickFifthBtn();
+      break;
+
+    case refs.seventhBtn:
+      onClickSixthBtn();
+      break;
+
+    case refs.eighthBtn:
+      onClickSeventhBtn();
+      break;
+  }
 }
 
 export function onClickFirstBtn(e) {
