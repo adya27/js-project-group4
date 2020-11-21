@@ -16,26 +16,8 @@ const makesTrendingMkp = (page = 1) => {
 
   // makes last btn
   fetchIt(URLTrending).then(res => {
-    console.log(res.total_pages);
+    // console.log(res.total_pages);
     refs.lastBtn.textContent = res.total_pages;
-    refs.lastBtn.addEventListener('click', onClickLastBtn);
-    function onClickLastBtn(e) {
-      e.preventDefault();
-      if (refs.previousActiveBtn !== '') {
-        refs.previousActiveBtn.classList.remove('current-page');
-      }
-      page = res.total_pages;
-      makesTrendingMkp(page);
-      refs.lastBtn.classList.add('current-page');
-      refs.previousActiveBtn = refs.lastBtn;
-      refs.eighthBtn.textContent = res.total_pages - 1;
-      refs.seventhBtn.textContent = res.total_pages - 2;
-      refs.sixthBtn.textContent = res.total_pages - 3;
-      refs.fifthBtn.textContent = res.total_pages - 4;
-      refs.fourthBtn.textContent = res.total_pages - 5;
-      refs.thirdBtn.textContent = res.total_pages - 6;
-      refs.secondBtn.textContent = '...';
-    }
   });
 
   fetchIt(URLTrending)
