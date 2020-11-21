@@ -1,0 +1,48 @@
+.block-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.pages-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.three-points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.page-item {
+  border: 1px;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  outline: none;
+}
+.current-page {
+  background: #ff6b01;
+  color: white;
+}
+.page-item:hover {
+  background: #ff6b01;
+  color: white;
+}
+
+.ishidden {
+  display: none;
+}
+
+.frame {
+  outline: none;
+}
