@@ -6,11 +6,37 @@ import getYearFromReleaseDate from './getYearFromReleaseDate';
 import { onClickOpenModal } from './modal';
 import makesStubForPicture from './makesStubForPicture';
 import hideLoader from './loader';
+import refs from './pagination-btns-refs';
+import { onClickFirstBtn } from './trending-page-pagination';
 
 const galleryList = document.querySelector('.js-gallery');
 
-const makesTrendingMkp = () => {
-  const URLTrending = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`; //constant
+const makesTrendingMkp = (page = 1) => {
+  const URLTrending = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`; //constant
+
+  // makes last btn
+  fetchIt(URLTrending).then(res => {
+    console.log(res.total_pages);
+    refs.lastBtn.textContent = res.total_pages;
+    refs.lastBtn.addEventListener('click', onClickLastBtn);
+    function onClickLastBtn(e) {
+      e.preventDefault();
+      if (refs.previousActiveBtn !== '') {
+        refs.previousActiveBtn.classList.remove('current-page');
+      }
+      page = res.total_pages;
+      makesTrendingMkp(page);
+      refs.lastBtn.classList.add('current-page');
+      refs.previousActiveBtn = refs.lastBtn;
+      refs.eighthBtn.textContent = res.total_pages - 1;
+      refs.seventhBtn.textContent = res.total_pages - 2;
+      refs.sixthBtn.textContent = res.total_pages - 3;
+      refs.fifthBtn.textContent = res.total_pages - 4;
+      refs.fourthBtn.textContent = res.total_pages - 5;
+      refs.thirdBtn.textContent = res.total_pages - 6;
+      refs.secondBtn.textContent = '...';
+    }
+  });
 
   fetchIt(URLTrending)
     .then(({ results }) => results)
@@ -24,7 +50,7 @@ const makesTrendingMkp = () => {
       return results;
     })
     .then(results => {
-      galleryList.insertAdjacentHTML('beforeend', movieCardMkp(results));
+      galleryList.innerHTML = movieCardMkp(results);
       galleryList.addEventListener('click', onClickOpenModal);
     })
     .then(() => {
@@ -32,6 +58,6 @@ const makesTrendingMkp = () => {
     });
 };
 
-makesTrendingMkp();
+onClickFirstBtn();
 
 export { makesTrendingMkp };
