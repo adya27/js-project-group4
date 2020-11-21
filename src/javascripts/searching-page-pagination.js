@@ -8,18 +8,46 @@ function makesPagination() {
     refs.pageButton.insertAdjacentHTML('beforeend', paginationCard(imageApiService.totalPages));
     refs.pageButton.addEventListener('click', changePage);
 
-    const pages = document.querySelectorAll('.page');
-    
-    for (let i = 0; i < pages.length; i += 1) {
-        if (pages[i].id > 5)
-        pages[i].classList.add('ishidden')
-    }  
+    refs.buttonNext.addEventListener('click', nextPage);
+    refs.buttonPrev.addEventListener('click', previousPage);
+}
+
+function nextPage() {
+    refs.pageButton.style.transform = moveRight();   
+}
+
+let width = 0;
+function moveRight() {
+    for (let i = 0; i < 25; i += 1) {
+        width += 400;
+        const move = `translateX(-${width}px)`;
+        return move;
+    }
+    return width;
+}
+
+function previousPage() {
+    refs.pageButton.style.transform = moveLeft();   
+}
+
+function moveLeft() {
+    for (let i = 0; i < 5; i += 1) {
+        width -= 400;
+        const move = `translateX(-${width}px)`;
+        return move;
+    }
+    return width;
+}
+
+function resetMove() {
+    refs.pageButton.style.transform = 'translateX(0)';   
 }
 
 function changePage(e) {
     imageApiService.setPage(e.target.textContent);
-    imageApiService.fetchImages().then(renderMarkup);  
+    imageApiService.fetchImages().then(renderMarkup);   
 }
+
 
 function scrollMovies() {
     window.scrollTo({
@@ -33,4 +61,4 @@ function clearPagination() {
     refs.pageButton.innerHTML = '';
 }
 
-export { makesPagination, changePage, clearPagination, scrollMovies };
+export { makesPagination, nextPage, moveRight, previousPage, moveLeft, changePage, scrollMovies, clearPagination, resetMove };
