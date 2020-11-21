@@ -1,7 +1,7 @@
 {{!-- Нужно раскомментировать для пагинации Юры --}}
 {{!-- {{#each this}}
 <li class="photo-card" data-id="{{id}}">
-    <img class="js-image-src" src="https://image.tmdb.org/t/p/w1280{{poster_path}}" alt="{{title}}" data-id="{{id}}"
+    <img class="js-image-src" src="https://image.tmdb.org/t/p/w400{{poster_path}}" alt="{{title}}" data-id="{{id}}"
         class="poster-film" />
 
     <div class="card-text">
@@ -14,8 +14,8 @@
 {{!-- Нужно раскомментировать для пагинации Иры --}}
 {{#each this}}
 <li class="photo-card" data-id="{{id}}">
-    <img class="js-image-src" src="https://image.tmdb.org/t/p/w400{{poster_path}}" alt="{{title}}" data-id="{{id}}"
-        class="poster-film" />
+    <img class="js-image-src poster-film" src="https://image.tmdb.org/t/p/w400{{poster_path}}" alt="{{title}}"
+        data-id="{{id}}" />
 
     <div class="card-text">
         <h3 class="title-card">{{title}} {{original_name}}</h3>
