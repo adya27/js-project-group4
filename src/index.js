@@ -4,7 +4,7 @@ import './javascripts/fetch';
 import './javascripts/givesGenresNames';
 import './javascripts/loader';
 
-// import './javascripts/search-movies'; // Должен быть подключен для пагинации Иры
+import './javascripts/search-movies'; // Должен быть подключен для пагинации Иры
 import './javascripts/addTrendsMkp';
 
 import './javascripts/modal';

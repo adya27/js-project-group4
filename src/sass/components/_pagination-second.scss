@@ -1,27 +1,76 @@
 .block-pagination {
   display: flex;
+  height: 40px;
   justify-content: center;
-}
-
-.button-pages {
-  display: flex;
-  flex-direction: row;
-}
-
-.left {
-  margin-right: 5px;
-}
-
-.page {
-  margin-right: 5px;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 60px;
 }
 
 .ishidden {
   display: none;
 }
 
-.isvisible {
-  display: block;
+.block-pagination-hidden {
+  display: flex;
+  max-width: 400px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.block-pagination-list {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.move {
+  transform: translateX(-100%);
+}
+
+.block-pagination-item {
+  border: none;
+  outline: none;
+}
+
+.block-pagination-left {
+  width: 40px;
+  height: 100%;
+  border: transparent;
+  outline: none;
+  border-radius: 5px;
+}
+
+.block-pagination-buttons {
+  width: 40px;
+  height: 100%;
+  border: transparent;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  &:hover {
+    color: $primaryTextColor;
+    background-color: $accentColor;
+  }
+  &.not-current {
+    background-color: transparent;
+  }
+  &.current {
+    background-color: $accentColor;
+  }
+}
+
+.block-pagination-right {
+  width: 40px;
+  height: 100%;
+  border: transparent;
+  outline: none;
+  border-radius: 5px;
+}
+
+.block-pagination-image {
+  margin: 0;
+  padding: 0;
 }
 
 .btn-page:hover,
