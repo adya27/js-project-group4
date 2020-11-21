@@ -14,20 +14,48 @@ refs.sixthBtn.addEventListener('click', onClickSixthBtn);
 refs.seventhBtn.addEventListener('click', onClickSeventhBtn);
 refs.eighthBtn.addEventListener('click', onClickEighthBtn);
 
+function scrollMovies() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+
 function onClickNextBtn(e) {
   e.preventDefault();
-  page += 1;
+  page = Number(page) + 1;
   console.log(page);
   makesTrendingMkp(page);
+  //   scrollMovies();
+}
+
+refs.lastBtn.addEventListener('click', onClickLastBtn);
+function onClickLastBtn(e) {
+  e.preventDefault();
+  if (refs.previousActiveBtn !== '') {
+    refs.previousActiveBtn.classList.remove('current-page');
+  }
+  page = refs.lastBtn.textContent;
+  makesTrendingMkp(page);
+  refs.lastBtn.classList.add('current-page');
+  refs.previousActiveBtn = refs.lastBtn;
+  refs.eighthBtn.textContent = page - 1;
+  refs.seventhBtn.textContent = page - 2;
+  refs.sixthBtn.textContent = page - 3;
+  refs.fifthBtn.textContent = page - 4;
+  refs.fourthBtn.textContent = page - 5;
+  refs.thirdBtn.textContent = page - 6;
+  refs.secondBtn.textContent = '...';
 }
 
 function onClickPreviousBtn(e) {
   e.preventDefault();
   if (page > 1) {
-    page -= 1;
+    page = Number(page) - 1;
   }
   console.log(page);
   makesTrendingMkp(page);
+  //   scrollMovies();
 }
 
 export function onClickFirstBtn(e) {
