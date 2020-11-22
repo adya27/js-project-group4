@@ -9,12 +9,13 @@ const refs = {
   imageGallery: document.querySelector('.gallery'),
   // пагинация
   page: document.querySelector('.pages-list'),
-  threePointLeft: document.querySelector('.js-three-left'),
-  threePointRigth: document.querySelector('.js-three-rigth'),
+  // threePointLeft: document.querySelector('.js-three-left'),
+  // threePointRigth: document.querySelector('.js-three-rigth'),
   previusPage: document.querySelector('.js-previus-page'),
   nextPage: document.querySelector('.js-next-page'),
   // ====================================================================================
 };
+
 
 const watchedMovies = JSON.parse(localStorage.getItem('Watched'));
 const queueMovies = JSON.parse(localStorage.getItem('Queue'));
@@ -29,6 +30,7 @@ let start = 0;
 let end = start + notesOnPage;
 
 // =====================================================================================
+ 
 
 refs.headerBtns.addEventListener('click', onHeaderButtons);
 refs.imageGallery.addEventListener('click', onClickOpenModal);
@@ -38,9 +40,6 @@ refs.page.addEventListener('click', onPage);
 refs.previusPage.addEventListener('click', onPreviusBtn);
 refs.nextPage.addEventListener('click', onNextBtn);
 
-//  if (current.classList.contains('current-page')) {
-//     current.classList.remove('current-page');
-//   }
 // ========================================================================
 
 renderMovies(watchedMovies);
@@ -51,14 +50,11 @@ refs.btnWatched.classList.add('selected');
 
 visibleMarkup = watchedMovies.slice(start, end);
 renderMovies(visibleMarkup);
+
 creatArrPage(countOfPage);
 markupPage(arrTotalPages);
-// =====================================
 
-if (arrTotalPages.length <= 5) {
-  refs.threePointLeft.classList.add('ishidden');
-  refs.threePointRigth.classList.add('ishidden');
-}
+// =====================================
 
 function onHeaderButtons(e) {
   if (e.target.dataset.action === 'watched') {
@@ -87,13 +83,17 @@ function renderMovies(movies) {
 function creatArrPage(countOfPage) {
     for (let i = 1; i <= countOfPage; i += 1) {
       arrTotalPages.push(i);
-    
-}
+  }
 }
 
 function markupPage(arrTotalPages) {
-    refs.page.innerHTML = pagination(arrTotalPages);
+  refs.page.innerHTML = pagination(arrTotalPages);
+  hiddenArrows(arrTotalPages);
+  
 }
+
+let currentPage = document.querySelector(`[data-page="1"`);
+currentPage.classList.add('current-page');
 
 function onPage(e) {
   numPage = e.target.dataset.page;
@@ -103,15 +103,12 @@ function onPage(e) {
   
   visibleMarkup = watchedMovies.slice(start, end);
   renderMovies(visibleMarkup)
-  const current = document.querySelector(`[data-page="${numPage}"]`);
 
- 
-  
-  current.classList.add('current-page');
-  
-  console.log(current);
-
-  return current;
+  if (currentPage) {
+   currentPage.classList.remove('current-page');
+}
+  currentPage = document.querySelector(`[data-page="${numPage}"`)
+  currentPage.classList.add('current-page');
 }
 
 function onPreviusBtn() {
@@ -124,6 +121,12 @@ function onPreviusBtn() {
   visibleMarkup = watchedMovies.slice(start, end);
   renderMovies(visibleMarkup);
 
+  if (currentPage) {
+   currentPage.classList.remove('current-page');
+}
+  
+  currentPage = document.querySelector(`[data-page="${numPage}"`)
+  currentPage.classList.add('current-page');
 }
 
 function onNextBtn() {
@@ -135,4 +138,26 @@ function onNextBtn() {
   end = start + notesOnPage;
   visibleMarkup = watchedMovies.slice(start, end);
   renderMovies(visibleMarkup);
+
+  if (currentPage) {
+   currentPage.classList.remove('current-page');
 }
+  
+  currentPage = document.querySelector(`[data-page="${numPage}"`)
+  currentPage.classList.add('current-page');
+}
+ 
+function hiddenArrows(arrTotalPages) {
+  if (arrTotalPages.length < 2) {
+    refs.previusPage.classList.add('ishidden');
+    refs.nextPage.classList.add('ishidden');
+  }
+}
+
+// let movePage = document.body.scrollHeight;
+//    window.scrollTo({
+
+//       top: movePage,
+//       behavior: "smooth",
+      
+//   });
