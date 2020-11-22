@@ -15,6 +15,18 @@ refs.seventhBtn.addEventListener('click', onClickSeventhBtn);
 refs.eighthBtn.addEventListener('click', onClickEighthBtn);
 refs.lastBtn.addEventListener('click', onClickLastBtn);
 
+refs.previousBtn.addEventListener('click', scrollMovies);
+refs.nextBtn.addEventListener('click', scrollMovies);
+refs.firstBtn.addEventListener('click', scrollMovies);
+refs.secondBtn.addEventListener('click', scrollMovies);
+refs.thirdBtn.addEventListener('click', scrollMovies);
+refs.fourthBtn.addEventListener('click', scrollMovies);
+refs.fifthBtn.addEventListener('click', scrollMovies);
+refs.sixthBtn.addEventListener('click', scrollMovies);
+refs.seventhBtn.addEventListener('click', scrollMovies);
+refs.eighthBtn.addEventListener('click', scrollMovies);
+refs.lastBtn.addEventListener('click', scrollMovies);
+
 function scrollMovies() {
   window.scrollTo({
     top: 0,
