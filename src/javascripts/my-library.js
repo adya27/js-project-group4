@@ -16,7 +16,6 @@ const refs = {
   // ====================================================================================
 };
 
-
 const watchedMovies = JSON.parse(localStorage.getItem('Watched'));
 const queueMovies = JSON.parse(localStorage.getItem('Queue'));
 
@@ -28,6 +27,7 @@ let countOfPage = Math.ceil(watchedMovies.length / notesOnPage);
 let numPage = 1;
 let start = 0;
 let end = start + notesOnPage;
+ 
 
 // =====================================================================================
  
@@ -149,9 +149,9 @@ function onNextBtn() {
 }
  
 function hiddenArrows(arrTotalPages) {
-  if (arrTotalPages.length < 2) {
-    refs.previusPage.classList.add('ishidden');
-    refs.nextPage.classList.add('ishidden');
+  if (arrTotalPages.length > 1) {
+    refs.previusPage.classList.remove('ishidden');
+    refs.nextPage.classList.remove('ishidden');
   }
 }
 
