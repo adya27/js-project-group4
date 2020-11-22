@@ -1,14 +1,19 @@
 import { ImageApiService } from './api-service';
 import { makesTrendingMkp } from './addTrendsMkp';
+import { makesPagination, scrollMovies, clearPagination, resetMove } from '../javascripts/searching-page-pagination';
 import markupCard from '../templates/list_films.hbs';
-import { makesPagination, nextPage, moveRight, previousPage, moveLeft, changePage, scrollMovies, clearPagination, resetMove } from '../javascripts/searching-page-pagination';
+
 
 const refs = {
     searchForm: document.querySelector('.header-search'),
     imageGallery: document.querySelector('.js-gallery'),
     notification: document.querySelector('.header-notification'),
     paginationBlock: document.querySelector('.block-pagination'),
+    paginationBlockHidden: document.querySelector('.block-pagination-hidden'),
     pageButton: document.querySelector('.block-pagination-list'),
+    stableContaiverPrev: document.querySelector('.stable-button-container-prev'),
+    stableContaiverNext: document.querySelector('.stable-button-container-next'),
+    stableButton: document.querySelector('.stable-button-list'),
     buttonNext: document.querySelector('.block-pagination-right'),
     buttonPrev: document.querySelector('.block-pagination-left'),
     containerHidden: document.querySelector('.pages-container'),
@@ -40,7 +45,9 @@ function renderMarkup(movies) {
     if (imageApiService.totalResults === 0) {
         showError();
         makesTrendingMkp();
-        }
+        refs.paginationBlock.classList.add('ishidden');
+        refs.containerHidden.classList.remove('ishidden');
+    }
 }
 
 function showNotification() {
@@ -66,5 +73,6 @@ function replaceImages() {
 }
 
 export { imageApiService, refs, searchForm, renderMarkup };
+
 
     
