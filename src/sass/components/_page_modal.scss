@@ -214,7 +214,8 @@ button {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--animation-duration) var(--timing-function);
@@ -230,7 +231,8 @@ button {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   overflow: auto;
 }
@@ -259,18 +261,20 @@ button {
 
 .lightbox__button {
   position: absolute;
+  z-index: 99999;
   top: 20px;
   right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   margin: 0;
   border: none;
   border-radius: 50%;
-  background-color: transparent;
+  // background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   cursor: pointer;
   transition: background-color var(--animation-duration) var(--timing-function);
