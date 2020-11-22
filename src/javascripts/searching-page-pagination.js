@@ -5,7 +5,7 @@ import { imageApiService, refs, renderMarkup } from './search-movies';
 
 function makesPagination() {
     for (let i = 0; i < imageApiService.totalPages.length; i += 1) {
-        imageApiService.totalPages[i] = i + 1;
+        imageApiService.totalPages[i] = i + 2;
     }
     if (imageApiService.totalPages.length <= 5) {
         refs.pageButton.insertAdjacentHTML('beforeend', paginationCardSmall(imageApiService.totalPages));
