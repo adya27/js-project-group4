@@ -22,6 +22,34 @@ function scrollMovies() {
   });
 }
 
+function renderPagination(e, btnRef) {
+  if (e !== undefined) {
+    e.preventDefault();
+  }
+
+  refs.previousActiveBtn.classList.remove('current-page');
+  refs.fifthBtn.classList.remove('current-page');
+  page = btnRef.textContent;
+  makesTrendingMkp(page);
+
+  if (refs.secondBtn.textContent !== '...') {
+    btnRef.classList.add('current-page');
+    refs.previousActiveBtn = btnRef;
+  } else {
+    refs.fifthBtn.textContent = btnRef.textContent;
+    refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
+    refs.thirdBtn.textContent = Number(refs.fifthBtn.textContent) - 2;
+    refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
+    refs.seventhBtn.textContent = Number(refs.fifthBtn.textContent) + 2;
+
+    refs.fifthBtn.classList.add('current-page');
+    refs.previousActiveBtn = btnRef;
+  }
+  if (refs.thirdBtn.textContent == 3) {
+    refs.secondBtn.textContent = 2;
+  }
+}
+
 function onClickNextBtn(e) {
   e.preventDefault();
   //   page = Number(page) + 1;
@@ -157,38 +185,22 @@ export function onClickSecondBtn(e) {
     e.preventDefault();
   }
 
-  refs.previousActiveBtn.classList.remove('current-page');
+  if (refs.secondBtn.textContent !== '...') {
+    refs.previousActiveBtn.classList.remove('current-page');
 
-  page = refs.secondBtn.textContent;
-  makesTrendingMkp(page);
-  refs.secondBtn.classList.add('current-page');
-  refs.previousActiveBtn = refs.secondBtn;
+    page = refs.secondBtn.textContent;
+    makesTrendingMkp(page);
+    refs.secondBtn.classList.add('current-page');
+    refs.previousActiveBtn = refs.secondBtn;
+  }
 }
 
 export function onClickThirdBtn(e) {
-  if (e !== undefined) {
-    e.preventDefault();
-  }
-
-  refs.previousActiveBtn.classList.remove('current-page');
-
-  page = refs.thirdBtn.textContent;
-  makesTrendingMkp(page);
-  refs.thirdBtn.classList.add('current-page');
-  refs.previousActiveBtn = refs.thirdBtn;
+  renderPagination(e, refs.thirdBtn);
 }
 
 export function onClickFourthBtn(e) {
-  if (e !== undefined) {
-    e.preventDefault();
-  }
-
-  refs.previousActiveBtn.classList.remove('current-page');
-
-  page = refs.fourthBtn.textContent;
-  makesTrendingMkp(page);
-  refs.fourthBtn.classList.add('current-page');
-  refs.previousActiveBtn = refs.fourthBtn;
+  renderPagination(e, refs.fourthBtn);
 }
 
 export function onClickFifthBtn(e) {
