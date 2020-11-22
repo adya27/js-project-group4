@@ -236,26 +236,9 @@ export function onClickSeventhBtn(e) {
   if (e !== undefined) {
     e.preventDefault();
   }
-  refs.previousActiveBtn.classList.remove('current-page');
-  refs.fifthBtn.textContent = Number(refs.seventhBtn.textContent);
-  refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
-  refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
-  refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
-  refs.seventhBtn.textContent = Number(refs.sixthBtn.textContent) + 1;
-  refs.secondBtn.textContent = '...';
-  page = refs.fifthBtn.textContent;
-  makesTrendingMkp(page);
-  refs.fifthBtn.classList.add('current-page');
-  refs.previousActiveBtn = refs.fifthBtn;
-}
-
-export function onClickEighthBtn(e) {
-  if (e !== undefined) {
-    e.preventDefault();
-  }
-  if (refs.eighthBtn.textContent !== '...') {
+  if (refs.eighthBtn.textContent === '...') {
     refs.previousActiveBtn.classList.remove('current-page');
-    refs.fifthBtn.textContent = Number(refs.eighthBtn.textContent);
+    refs.fifthBtn.textContent = Number(refs.seventhBtn.textContent);
     refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
     refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
     refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
@@ -265,5 +248,19 @@ export function onClickEighthBtn(e) {
     makesTrendingMkp(page);
     refs.fifthBtn.classList.add('current-page');
     refs.previousActiveBtn = refs.fifthBtn;
+  }
+}
+
+export function onClickEighthBtn(e) {
+  if (e !== undefined) {
+    e.preventDefault();
+  }
+  if (refs.eighthBtn.textContent !== '...') {
+    refs.previousActiveBtn.classList.remove('current-page');
+
+    page = refs.eighthBtn.textContent;
+    makesTrendingMkp(page);
+    refs.eighthBtn.classList.add('current-page');
+    refs.previousActiveBtn = refs.eighthBtn;
   }
 }
