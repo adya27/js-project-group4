@@ -11,6 +11,17 @@ const refs = {
   eighthBtn: document.querySelector('.js-8-btn'),
   lastBtn: document.querySelector('.js-last-btn'),
   previousActiveBtn: '',
+  previousBtnM: document.querySelector('.js-previous-btn-m'),
+  nextBtnM: document.querySelector('.js-next-btn-m'),
+  firstBtnM: document.querySelector('.js-first-btn-m'),
+  secondBtnM: document.querySelector('.js-2-btn-m'),
+  thirdBtnM: document.querySelector('.js-3-btn-m'),
+  fourthBtnM: document.querySelector('.js-4-btn-m'),
+  fifthBtnM: document.querySelector('.js-5-btn-m'),
+  sixthBtnM: document.querySelector('.js-6-btn-m'),
+  seventhBtnM: document.querySelector('.js-7-btn-m'),
+  eighthBtnM: document.querySelector('.js-8-btn-m'),
+  lastBtnM: document.querySelector('.js-last-btn-m'),
 };
 
 export default refs;

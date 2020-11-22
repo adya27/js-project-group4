@@ -37,3 +37,24 @@ a.page {
 .arrow-class {
   background: #f7f7f7;
 }
+
+@media screen and(min-width:$tablet) {
+  .pagination-desktop {
+    display: flex;
+  }
+  .pagination-mobile {
+    display: none;
+  }
+}
+
+@media screen and(max-width:$tablet) {
+  .pagination-desktop {
+    display: none;
+  }
+  .pagination-mobile {
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+  }
+}
