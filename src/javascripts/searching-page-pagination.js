@@ -16,14 +16,23 @@ function makesPagination() {
         refs.pageButton.insertAdjacentHTML('afterbegin', paginationCardSmall(imageApiService.totalPages));
         refs.stableContaiverNext.insertAdjacentHTML('afterbegin', paginationCardExternal());
         
+        const firstPage = document.querySelector('.first-page');
         const lastPage = document.querySelector('.last-page');
         lastPage.textContent = imageApiService.totalPages.length;
+        firstPage.addEventListener('click', onPageClick)
+        lastPage.addEventListener('click', onPageClick)
+       
     }
     refs.pageButton.addEventListener('click', changePage);
     refs.buttonNext.addEventListener('click', nextPage);
     refs.buttonPrev.addEventListener('click', previousPage);
     const firstPage = document.getElementById(`${imageApiService.totalPages[0]}`);
     firstPage.classList.add('current-page');
+}
+
+function onPageClick(e) {
+    imageApiService.setPage(e.target.textContent);
+    imageApiService.fetchImages().then(renderMarkup); 
 }
 
 // let idClick = 1;
@@ -84,7 +93,6 @@ function changePage(e) {
     imageApiService.fetchImages().then(renderMarkup);  
 }
 
-
 function scrollMovies() {
     window.scrollTo({
         top: 0,
@@ -97,6 +105,11 @@ function clearPagination() {
     refs.pageButton.innerHTML = '';
     refs.stableContaiverPrev.innerHTML = '';
     refs.stableContaiverNext.innerHTML = '';
+}
+
+function onPageClick(e) {
+    imageApiService.setPage(e.target.textContent);
+    imageApiService.fetchImages().then(renderMarkup); 
 }
 
 export { makesPagination, scrollMovies, clearPagination, resetMove };
