@@ -16,10 +16,10 @@ refs.eighthBtn.addEventListener('click', onClickEighthBtn);
 refs.lastBtn.addEventListener('click', onClickLastBtn);
 
 function scrollMovies() {
-  // window.scrollTo({
-  //   top: 0,
-  //   behavior: 'smooth',
-  // });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
 
 function renderPagination(e, btnRef) {
@@ -228,19 +228,7 @@ export function onClickSixthBtn(e) {
   if (e !== undefined) {
     e.preventDefault();
   }
-  if (refs.eighthBtn.textContent === '...') {
-    refs.previousActiveBtn.classList.remove('current-page');
-    refs.fifthBtn.textContent = Number(refs.sixthBtn.textContent);
-    refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
-    refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
-    refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
-    refs.seventhBtn.textContent = Number(refs.sixthBtn.textContent) + 1;
-    refs.secondBtn.textContent = '...';
-    page = refs.fifthBtn.textContent;
-    makesTrendingMkp(page);
-    refs.fifthBtn.classList.add('current-page');
-    refs.previousActiveBtn = refs.fifthBtn;
-  }
+  renderPaginationRight(refs.sixthBtn);
 
   fromLeftEnd(refs.sixthBtn);
   addDotes();
@@ -251,19 +239,7 @@ export function onClickSeventhBtn(e) {
   if (e !== undefined) {
     e.preventDefault();
   }
-  if (refs.eighthBtn.textContent === '...') {
-    refs.previousActiveBtn.classList.remove('current-page');
-    refs.fifthBtn.textContent = Number(refs.seventhBtn.textContent);
-    refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
-    refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
-    refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
-    refs.seventhBtn.textContent = Number(refs.sixthBtn.textContent) + 1;
-    refs.secondBtn.textContent = '...';
-    page = refs.fifthBtn.textContent;
-    makesTrendingMkp(page);
-    refs.fifthBtn.classList.add('current-page');
-    refs.previousActiveBtn = refs.fifthBtn;
-  }
+  renderPaginationRight(refs.seventhBtn);
 
   fromLeftEnd(refs.seventhBtn);
 
@@ -287,6 +263,22 @@ function fromLeftEnd(pageRef) {
     makesTrendingMkp(page);
     pageRef.classList.add('current-page');
     refs.previousActiveBtn = pageRef;
+  }
+}
+
+function renderPaginationRight(currentRef) {
+  if (refs.eighthBtn.textContent === '...') {
+    refs.previousActiveBtn.classList.remove('current-page');
+    refs.fifthBtn.textContent = Number(currentRef.textContent);
+    refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
+    refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
+    refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
+    refs.seventhBtn.textContent = Number(refs.sixthBtn.textContent) + 1;
+    refs.secondBtn.textContent = '...';
+    page = refs.fifthBtn.textContent;
+    makesTrendingMkp(page);
+    refs.fifthBtn.classList.add('current-page');
+    refs.previousActiveBtn = refs.fifthBtn;
   }
 }
 
