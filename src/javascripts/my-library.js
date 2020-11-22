@@ -75,6 +75,7 @@ function onHeaderButtons(e) {
 function renderMovies(movies) {
   refs.imageGallery.innerHTML = '';
   refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(movies));
+  scrollMovies();
 }
 
 
@@ -152,6 +153,13 @@ function hiddenArrows(arrTotalPages) {
     refs.previusPage.classList.add('ishidden');
     refs.nextPage.classList.add('ishidden');
   }
+}
+
+function scrollMovies() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
 }
 
 // let movePage = document.body.scrollHeight;
