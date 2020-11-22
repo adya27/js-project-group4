@@ -17,8 +17,8 @@ export default function onButtonWatchedClick() {
     let filmsArray = JSON.parse(filmsString);
 
   if (filmsArray.find(film => film.title === filmObj.title)) {
-      checkClickBtn(); //функция меняет текстовое значение кнопки, но не хранит его.=(
-      // alert(`Error: Movie ${filmObj.title} is already added.`);
+      // checkClickBtn(); //функция меняет текстовое значение кнопки, но не хранит его.=(
+      alert(`Error: Movie ${filmObj.title} is already added.`);
       // localStorage.removeItem('Watched', JSON.stringify(filmsArray)); (если оставить так, очистит все локальное хранилище а не конкретный элемент)
       return;
     }

@@ -17,8 +17,8 @@ export default function onButtonQueueClick() {
   let films = JSON.parse(filmsLocalStorageStr);
 
   if (films.find(film => film.title === filmObj.title)) {
-    checkClickBtn();
-    // alert(`Error: Movie ${filmObj.title} is already added.`);
+    // checkClickBtn();
+    alert(`Error: Movie ${filmObj.title} is already added.`);
     // localStorage.removeItem('Queue', JSON.stringify(filmObj));
     return;
   }
