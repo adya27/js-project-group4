@@ -23,4 +23,4 @@ import './javascripts/trending-page-pagination';
 // import './javascripts/trending-page-pagination-mobile';
 
 import './javascripts/skroll-top';
-import './javascripts/width';
+// import './javascripts/width';
