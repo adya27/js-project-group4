@@ -2,16 +2,18 @@ const refs = {
     openModel: document.querySelector('.open-modal-team'),
     showModel: document.querySelector('.js-backdrop'),
     closeModelBtn: document.querySelector('.close-modal-btn'),
-   }
+    goTopBtn: document.querySelector(".scrollToTop"),   
+}
 
 // Открытие модального окна
 refs.openModel.addEventListener('click', onOpenModal);
 
 function onOpenModal(e) {
-    e.preventDefault();
-    refs.showModel.classList.add('is-open');
+  e.preventDefault();
+  refs.showModel.classList.add('is-open');
   window.addEventListener('keydown', onCloseModalByEscape);
   document.body.classList.add('modal-open');
+  refs.goTopBtn.classList.remove('back_to_top-show');
 }
 
 // Закрытие модального окна
@@ -21,6 +23,7 @@ function onCloseModal() {
   refs.showModel.classList.remove('is-open'); 
   window.removeEventListener('keydown', onCloseModalByEscape);
   document.body.classList.remove('modal-open');
+  refs.goTopBtn.classList.add('back_to_top-show');
 }
 
 // Закрытие модального окна по клику на Backdrop.
