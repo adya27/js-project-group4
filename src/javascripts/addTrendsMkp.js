@@ -4,7 +4,7 @@ import { givesGenresNames, givesGenresArr } from './givesGenresNames';
 import genres from './genres.js';
 import getYearFromReleaseDate from './getYearFromReleaseDate';
 import { onClickOpenModal } from './modal';
-import makesStubForPicture from './makesStubForPicture';
+import replaceImages from './makesStubForPicture';
 import hideLoader from './loader';
 import refs from './pagination-btns-refs';
 import { onClickFirstBtn } from './trending-page-pagination';
@@ -26,13 +26,12 @@ const makesTrendingMkp = (page = 1) => {
       results.forEach(movie => {
         movie.genre = givesGenresArr(movie.genre_ids);
         movie.year = getYearFromReleaseDate(movie.release_date);
-        movie.poster = makesStubForPicture(movie.poster_path);
-        // console.log(movie);
       });
       return results;
     })
     .then(results => {
       galleryList.innerHTML = movieCardMkp(results);
+      replaceImages();
       galleryList.addEventListener('click', onClickOpenModal);
     })
     .then(() => {

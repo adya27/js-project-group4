@@ -1,7 +1,7 @@
 import { makesTrendingMkp } from './addTrendsMkp';
-// console.log(makesTrendingMkp);
-let page = 1;
 import refs from './pagination-btns-refs';
+
+let page = 1;
 
 refs.previousBtn.addEventListener('click', onClickPreviousBtn);
 refs.nextBtn.addEventListener('click', onClickNextBtn);
@@ -64,10 +64,8 @@ function renderPagination(e, btnRef) {
 
 function onClickNextBtn(e) {
   e.preventDefault();
-  //   page = Number(page) + 1;
   console.log(page);
-  //   makesTrendingMkp(page);
-  //   scrollMovies();
+
   refs.previousActiveBtn.classList.remove('current-page');
 
   switch (refs.previousActiveBtn) {
@@ -103,6 +101,7 @@ function onClickNextBtn(e) {
       onClickLastBtn();
       break;
   }
+  scrollMovies();
 }
 
 function onClickLastBtn(e) {
@@ -121,6 +120,7 @@ function onClickLastBtn(e) {
   refs.fourthBtn.textContent = page - 5;
   refs.thirdBtn.textContent = page - 6;
   refs.secondBtn.textContent = '...';
+  scrollMovies();
 }
 
 function onClickPreviousBtn(e) {
@@ -129,8 +129,6 @@ function onClickPreviousBtn(e) {
     page = Number(page) - 1;
   }
   console.log(page);
-  //   makesTrendingMkp(page);
-  //   scrollMovies();
 
   refs.previousActiveBtn.classList.remove('current-page');
 
@@ -167,6 +165,7 @@ function onClickPreviousBtn(e) {
       onClickSeventhBtn();
       break;
   }
+  scrollMovies();
 }
 
 export function onClickFirstBtn(e) {
@@ -190,6 +189,8 @@ export function onClickFirstBtn(e) {
   refs.sixthBtn.textContent = page + 5;
   refs.seventhBtn.textContent = page + 6;
   refs.eighthBtn.textContent = '...';
+
+  scrollMovies();
 }
 
 export function onClickSecondBtn(e) {
@@ -205,14 +206,18 @@ export function onClickSecondBtn(e) {
     refs.secondBtn.classList.add('current-page');
     refs.previousActiveBtn = refs.secondBtn;
   }
+
+  scrollMovies();
 }
 
 export function onClickThirdBtn(e) {
   renderPagination(e, refs.thirdBtn);
+  scrollMovies();
 }
 
 export function onClickFourthBtn(e) {
   renderPagination(e, refs.fourthBtn);
+  scrollMovies();
 }
 
 export function onClickFifthBtn(e) {
@@ -225,6 +230,8 @@ export function onClickFifthBtn(e) {
   makesTrendingMkp(page);
   refs.fifthBtn.classList.add('current-page');
   refs.previousActiveBtn = refs.fifthBtn;
+
+  scrollMovies();
 }
 
 export function onClickSixthBtn(e) {
@@ -242,6 +249,8 @@ export function onClickSixthBtn(e) {
   makesTrendingMkp(page);
   refs.fifthBtn.classList.add('current-page');
   refs.previousActiveBtn = refs.fifthBtn;
+
+  scrollMovies();
 }
 
 export function onClickSeventhBtn(e) {
@@ -261,6 +270,8 @@ export function onClickSeventhBtn(e) {
     refs.fifthBtn.classList.add('current-page');
     refs.previousActiveBtn = refs.fifthBtn;
   }
+
+  scrollMovies();
 }
 
 export function onClickEighthBtn(e) {
@@ -275,4 +286,6 @@ export function onClickEighthBtn(e) {
     refs.eighthBtn.classList.add('current-page');
     refs.previousActiveBtn = refs.eighthBtn;
   }
+
+  scrollMovies();
 }
