@@ -15,23 +15,11 @@ refs.seventhBtn.addEventListener('click', onClickSeventhBtn);
 refs.eighthBtn.addEventListener('click', onClickEighthBtn);
 refs.lastBtn.addEventListener('click', onClickLastBtn);
 
-refs.previousBtn.addEventListener('click', scrollMovies);
-refs.nextBtn.addEventListener('click', scrollMovies);
-refs.firstBtn.addEventListener('click', scrollMovies);
-refs.secondBtn.addEventListener('click', scrollMovies);
-refs.thirdBtn.addEventListener('click', scrollMovies);
-refs.fourthBtn.addEventListener('click', scrollMovies);
-refs.fifthBtn.addEventListener('click', scrollMovies);
-refs.sixthBtn.addEventListener('click', scrollMovies);
-refs.seventhBtn.addEventListener('click', scrollMovies);
-refs.eighthBtn.addEventListener('click', scrollMovies);
-refs.lastBtn.addEventListener('click', scrollMovies);
-
 function scrollMovies() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
+  // window.scrollTo({
+  //   top: 0,
+  //   behavior: 'smooth',
+  // });
 }
 
 function renderPagination(e, btnRef) {
@@ -64,7 +52,6 @@ function renderPagination(e, btnRef) {
 
 function onClickNextBtn(e) {
   e.preventDefault();
-  console.log(page);
 
   refs.previousActiveBtn.classList.remove('current-page');
 
@@ -128,7 +115,6 @@ function onClickPreviousBtn(e) {
   if (page > 1) {
     page = Number(page) - 1;
   }
-  console.log(page);
 
   refs.previousActiveBtn.classList.remove('current-page');
 
@@ -177,6 +163,8 @@ export function onClickFirstBtn(e) {
     refs.previousActiveBtn.classList.remove('current-page');
   }
 
+  refs.fifthBtn.classList.remove('current-page');
+
   page = 1;
 
   makesTrendingMkp(page);
@@ -189,7 +177,7 @@ export function onClickFirstBtn(e) {
   refs.sixthBtn.textContent = page + 5;
   refs.seventhBtn.textContent = page + 6;
   refs.eighthBtn.textContent = '...';
-
+  addDotes();
   scrollMovies();
 }
 
@@ -206,17 +194,19 @@ export function onClickSecondBtn(e) {
     refs.secondBtn.classList.add('current-page');
     refs.previousActiveBtn = refs.secondBtn;
   }
-
+  addDotes();
   scrollMovies();
 }
 
 export function onClickThirdBtn(e) {
   renderPagination(e, refs.thirdBtn);
+  addDotes();
   scrollMovies();
 }
 
 export function onClickFourthBtn(e) {
   renderPagination(e, refs.fourthBtn);
+  addDotes();
   scrollMovies();
 }
 
@@ -230,7 +220,7 @@ export function onClickFifthBtn(e) {
   makesTrendingMkp(page);
   refs.fifthBtn.classList.add('current-page');
   refs.previousActiveBtn = refs.fifthBtn;
-
+  addDotes();
   scrollMovies();
 }
 
@@ -238,18 +228,22 @@ export function onClickSixthBtn(e) {
   if (e !== undefined) {
     e.preventDefault();
   }
-  refs.previousActiveBtn.classList.remove('current-page');
-  refs.fifthBtn.textContent = Number(refs.sixthBtn.textContent);
-  refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
-  refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
-  refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
-  refs.seventhBtn.textContent = Number(refs.sixthBtn.textContent) + 1;
-  refs.secondBtn.textContent = '...';
-  page = refs.fifthBtn.textContent;
-  makesTrendingMkp(page);
-  refs.fifthBtn.classList.add('current-page');
-  refs.previousActiveBtn = refs.fifthBtn;
+  if (refs.eighthBtn.textContent === '...') {
+    refs.previousActiveBtn.classList.remove('current-page');
+    refs.fifthBtn.textContent = Number(refs.sixthBtn.textContent);
+    refs.fourthBtn.textContent = Number(refs.fifthBtn.textContent) - 1;
+    refs.thirdBtn.textContent = Number(refs.fourthBtn.textContent) - 1;
+    refs.sixthBtn.textContent = Number(refs.fifthBtn.textContent) + 1;
+    refs.seventhBtn.textContent = Number(refs.sixthBtn.textContent) + 1;
+    refs.secondBtn.textContent = '...';
+    page = refs.fifthBtn.textContent;
+    makesTrendingMkp(page);
+    refs.fifthBtn.classList.add('current-page');
+    refs.previousActiveBtn = refs.fifthBtn;
+  }
 
+  fromLeftEnd(refs.sixthBtn);
+  addDotes();
   scrollMovies();
 }
 
@@ -271,6 +265,8 @@ export function onClickSeventhBtn(e) {
     refs.previousActiveBtn = refs.fifthBtn;
   }
 
+  fromLeftEnd(refs.seventhBtn);
+
   scrollMovies();
 }
 
@@ -278,14 +274,29 @@ export function onClickEighthBtn(e) {
   if (e !== undefined) {
     e.preventDefault();
   }
+
+  fromLeftEnd(refs.eighthBtn);
+  scrollMovies();
+}
+
+function fromLeftEnd(pageRef) {
   if (refs.eighthBtn.textContent !== '...') {
     refs.previousActiveBtn.classList.remove('current-page');
 
-    page = refs.eighthBtn.textContent;
+    page = pageRef.textContent;
     makesTrendingMkp(page);
-    refs.eighthBtn.classList.add('current-page');
-    refs.previousActiveBtn = refs.eighthBtn;
+    pageRef.classList.add('current-page');
+    refs.previousActiveBtn = pageRef;
   }
+}
 
-  scrollMovies();
+function addDotes() {
+  if (
+    Number(refs.lastBtn.textContent) - 2 >
+    Number(refs.seventhBtn.textContent)
+  ) {
+    refs.eighthBtn.textContent = '...';
+  } else {
+    refs.eighthBtn.textContent = Number(refs.lastBtn.textContent) - 1;
+  }
 }
