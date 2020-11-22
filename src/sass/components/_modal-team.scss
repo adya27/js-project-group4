@@ -13,6 +13,7 @@
   width: 100vw;
   //   height: 100vh;
   height: 100%;
+  z-index: 9999;
 
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
@@ -24,6 +25,17 @@
   opacity: 1;
   pointer-events: initial;
 }
+
+// .backdrop__overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   // height: 100vh;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.8);
+//   overflow: auto;
+// }
 
 .team-modal {
   padding: 20px;
@@ -57,18 +69,19 @@
 }
 
 .team-btn {
-  position: fixed;
+  position: absolute;
+  z-index: 99999;
   top: 20px;
   right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   margin: 0;
   border: none;
-  border-radius: 50%;
+  border-radius: 60%;
   background-color: rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: background-color var(--animation-duration) var(--timing-function);
@@ -77,12 +90,6 @@
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-
-  @media screen and (max-width: 767px) and (min-width: 320px) {
-    width: 25px;
-    height: 25px;
-    background-size: 60%;
-  }
 }
 
 .team-btn:hover,
