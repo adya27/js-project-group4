@@ -17,10 +17,26 @@ export default function onButtonQueueClick() {
   let films = JSON.parse(filmsLocalStorageStr);
 
   if (films.find(film => film.title === filmObj.title)) {
-    alert(`Error: Movie ${filmObj.title} is already added.`);
+    checkClickBtn();
+    // alert(`Error: Movie ${filmObj.title} is already added.`);
+    // localStorage.removeItem('Queue', JSON.stringify(filmObj));
     return;
-  } else {
+  }
+
+  else {
     films.push(filmObj);
     localStorage.setItem('Queue', JSON.stringify(films));
+    // checkClickBtn();
   }
+}
+
+const checkClickBtn = () => {
+  const btnQueue = document.querySelector(".button-queue");
+
+  if (btnQueue.textContent === "add to queue") {
+    btnQueue.textContent = "delete from queue";
+  } else if (btnQueue.textContent === "delete from queue") {
+    btnQueue.textContent = "add to queue";
+  }
+  return
 }
