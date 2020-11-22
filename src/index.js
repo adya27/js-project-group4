@@ -20,7 +20,7 @@ import './javascripts/watched-library';
 import './javascripts/queue-library';
 import './javascripts/modal';
 import './javascripts/trending-page-pagination';
-import './javascripts/trending-page-pagination-mobile';
+// import './javascripts/trending-page-pagination-mobile';
 
 import './javascripts/skroll-top';
 import './javascripts/width';
